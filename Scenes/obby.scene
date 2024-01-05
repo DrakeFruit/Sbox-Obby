@@ -1,0 +1,2770 @@
+{
+  "GameObjects": [
+    {
+      "Id": "bfc59c12-1ed2-4f91-8956-a95a315eac3c",
+      "Name": "Sun",
+      "Position": "0,0,160",
+      "Rotation": "-0.000000004458647,0.7779426,0.00000000445865,0.6283348",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "__enabled": true,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "Id": "00344a8c-fa5e-45ae-b12a-10bb781a1dc3",
+      "Name": "2D Skybox",
+      "Position": "1632,-1120,1728",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SkyBox2D",
+          "__enabled": true,
+          "SkyMaterial": "materials/skybox/light_test_sky_sunny02.vmat",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "EnvmapProbe",
+          "__enabled": true,
+          "Bounds": {
+            "Mins": "-2048,-2048,-2048",
+            "Maxs": "2048,2048,2048"
+          },
+          "Projection": "Sphere",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "TintColor": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "6ad70641-3c6c-4402-9c85-9a4969af4764",
+      "Name": "Plane",
+      "Scale": "5,5,3",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__enabled": true,
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "__enabled": true,
+          "Center": "0,0,-1",
+          "IsTrigger": false,
+          "Scale": "100,100,2",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "d609e8c8-b41d-42da-8e0a-6504a9ccb2e2",
+      "Name": "Camera",
+      "Position": "-200,0,64",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__enabled": true,
+          "BackgroundColor": "0.25292,0.26086,0.29703,1",
+          "ClearFlags": "All",
+          "FieldOfView": 69.32,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 1
+        },
+        {
+          "__type": "Sharpen",
+          "__enabled": true,
+          "Scale": 0.2
+        },
+        {
+          "__type": "Bloom",
+          "__enabled": true,
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": {
+            "rangey": "0,106.45",
+            "frames": [
+              {},
+              {
+                "x": 1,
+                "y": 1
+              }
+            ]
+          },
+          "Mode": "Screen",
+          "Strength": 0.48,
+          "Threshold": 0.8,
+          "ThresholdWidth": 0.68
+        },
+        {
+          "__type": "Tonemapping",
+          "__enabled": true,
+          "ExposureCompensation": 0,
+          "MaximumExposure": 2,
+          "MinimumExposure": 0.95,
+          "Rate": 0.69
+        },
+        {
+          "__type": "GradientFog",
+          "__enabled": true,
+          "Color": "0.15038,0.2743,0.51485,0.26",
+          "EndDistance": 8096,
+          "FalloffExponent": 1,
+          "Height": 2000,
+          "StartDistance": 0,
+          "VerticalFalloffExponent": 1
+        },
+        {
+          "__type": "AudioListener",
+          "__enabled": true
+        }
+      ]
+    },
+    {
+      "Id": "bf5dda2f-c652-4c21-9267-2c985a395554",
+      "Name": "Player",
+      "Components": [
+        {
+          "__type": "CharacterController",
+          "__enabled": true,
+          "Acceleration": 10,
+          "GroundAngle": 45,
+          "Height": 71.05,
+          "IgnoreLayers": "player,trigger",
+          "Radius": 6,
+          "StepHeight": 12
+        },
+        {
+          "__type": "PlayerManager",
+          "__enabled": true,
+          "BackupSpawn": "cbf70022-ff35-4946-a2a0-5cd3cf14a210",
+          "CheckpointSound": "sounds/kenney/ui/ui.favourite.sound",
+          "CheckpointVolume": 1.5,
+          "DeathSound": "sounds/kenney/ui/ui.navigate.deny.sound",
+          "DeathVolume": 2,
+          "playerCollider": "7f38895e-ccb2-4d21-a4ea-629b51471f3b"
+        },
+        {
+          "__type": "PlayerController",
+          "__enabled": true,
+          "AnimationHelper": "b93a94f5-bf8e-4aba-87ae-a6d962ce6af2",
+          "Body": "b93a94f5-bf8e-4aba-87ae-a6d962ce6af2",
+          "Eye": "9997d79b-b9f3-4f86-82a4-b83621ffb751",
+          "FirstPerson": false,
+          "Gravity": "0,0,800",
+          "JumpSound": "sounds/kenney/ui/ui.downvote.sound",
+          "JumpVolume": 1
+        },
+        {
+          "__type": "Footsteps",
+          "__enabled": true,
+          "Source": "b93a94f5-bf8e-4aba-87ae-a6d962ce6af2",
+          "Volume": 1
+        }
+      ],
+      "Children": [
+        {
+          "Id": "b93a94f5-bf8e-4aba-87ae-a6d962ce6af2",
+          "Name": "Body",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": true,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/citizen/citizen.vmdl",
+              "RenderType": "Off",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "CitizenAnimationHelper",
+              "__enabled": true,
+              "BodyWeight": 1,
+              "EyeSource": null,
+              "EyesWeight": 1,
+              "HeadWeight": 1,
+              "Height": 1,
+              "IkLeftFoot": null,
+              "IkLeftHand": null,
+              "IkRightFoot": null,
+              "IkRightHand": null,
+              "LookAt": null,
+              "LookAtEnabled": false,
+              "Target": "b93a94f5-bf8e-4aba-87ae-a6d962ce6af2"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "26d52ff0-a25b-44b4-ba91-0faf2872fb55",
+              "Name": "pelvis",
+              "Position": "1.266582,0.000014907,31.0736",
+              "Rotation": "-0.4999993,-0.4999994,-0.5000004,0.5000009",
+              "Enabled": true,
+              "Children": [
+                {
+                  "Id": "45be3e0d-ee32-490a-8db3-01fa1246b1e6",
+                  "Name": "spine_0",
+                  "Position": "3.921827,-0.002448045,-0.0001164233",
+                  "Rotation": "0.0002581775,-0.0000002980232,-0.00005638599,1",
+                  "Enabled": true,
+                  "Children": [
+                    {
+                      "Id": "2d344b41-dc48-412e-9f71-e80b51bcfe7a",
+                      "Name": "spine_1",
+                      "Position": "5.610418,0.00001253671,0.00004611733",
+                      "Rotation": "-0.000396952,0.0000002086163,0.0002739429,0.9999998",
+                      "Enabled": true,
+                      "Children": [
+                        {
+                          "Id": "f2423266-980c-4a6b-aa9f-23500a5f7b0c",
+                          "Name": "spine_2",
+                          "Position": "5.610455,0.000009457347,0.00003942099",
+                          "Rotation": "0.0002120286,-0.0002525151,0.0000910759,1",
+                          "Enabled": true,
+                          "Children": [
+                            {
+                              "Id": "99aae1d4-31ba-4402-baea-c163f01c6049",
+                              "Name": "neck_0",
+                              "Position": "5.820016,-0.09348675,-0.002965245",
+                              "Rotation": "0.0000821203,-0.000251025,0.01994136,-0.9998012",
+                              "Enabled": true,
+                              "Children": [
+                                {
+                                  "Id": "b2885c12-493d-4e0c-a54c-d0372716a469",
+                                  "Name": "head",
+                                  "Position": "4.510834,-0.0007621644,-0.00001950618",
+                                  "Rotation": "0.0000001192093,-0.00000007450581,0.01963396,0.9998072",
+                                  "Enabled": true,
+                                  "Children": [
+                                    {
+                                      "Id": "bab52d96-a619-40dd-a39c-a1ea8849db5d",
+                                      "Name": "eye_L",
+                                      "Position": "6.90887,5.140466,3.234669",
+                                      "Rotation": "-0.707108,-0.7071056,-0.000003516674,0.000004142523",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "a610426b-674e-4e05-aaa4-a77ff45877a3",
+                                      "Name": "eye_R",
+                                      "Position": "6.908859,5.140496,-3.234596",
+                                      "Rotation": "-0.707108,-0.7071056,-0.000003516674,0.000004142523",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "4309dc74-fdee-438a-aa7d-ef01cf8b6a44",
+                                      "Name": "face_lid_lower_R",
+                                      "Position": "6.908821,5.140461,-3.234583",
+                                      "Rotation": "-0.3386923,0.9305478,-0.1307779,-0.04759897",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "ac2ace8a-f0e3-4498-b423-f7487367be24",
+                                      "Name": "face_lid_lower_L",
+                                      "Position": "6.908897,5.140467,3.23468",
+                                      "Rotation": "0.3386921,-0.9305472,-0.1307825,-0.04760015",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "c6d5b4f7-3f87-495a-9b7e-a7b8bd39034e",
+                                      "Name": "face_lid_upper_L",
+                                      "Position": "6.908885,5.140451,3.234676",
+                                      "Rotation": "-0.8974878,-0.4185047,-0.05881736,0.1261353",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "5919f33c-208b-415e-b252-f832f2823e0d",
+                                      "Name": "face_lid_upper_R",
+                                      "Position": "6.908875,5.140513,-3.234588",
+                                      "Rotation": "-0.8974884,-0.4185048,0.05881578,-0.1261319",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "ffdd2783-659b-4b31-96f2-a025a2e30899",
+                                      "Name": "ear_R",
+                                      "Position": "5.621449,-0.4154353,-5.92917",
+                                      "Rotation": "0.04624295,-0.6935213,0.1379467,-0.7055925",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "08fc705b-4a9f-44f2-80e2-5e63c0eb6648",
+                                      "Name": "ear_L",
+                                      "Position": "5.621478,-0.4155216,5.929071",
+                                      "Rotation": "-0.7055932,0.1379533,-0.6935186,0.04625109",
+                                      "Enabled": true
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Id": "6571abb9-aff1-4bd2-a8a7-36632fb761e7",
+                              "Name": "clavicle_L",
+                              "Position": "4.038116,0.2752069,1.103956",
+                              "Rotation": "-0.08115548,0.6811197,0.08690505,-0.7224523",
+                              "Enabled": true,
+                              "Children": [
+                                {
+                                  "Id": "7e926522-d050-4ede-9b43-7c9726cb7aed",
+                                  "Name": "arm_upper_L",
+                                  "Position": "6.218335,0.00002176547,0.00004804133",
+                                  "Rotation": "-0.02770683,-0.3880896,0.06826707,0.9186722",
+                                  "Enabled": true,
+                                  "Children": [
+                                    {
+                                      "Id": "4da4643a-a62b-48b2-96f3-07a2000d7bc5",
+                                      "Name": "arm_lower_L",
+                                      "Position": "10.04519,0.0000154972,-0.00004673001",
+                                      "Rotation": "0.00000004470348,0.0000004693866,0.1484236,0.9889238",
+                                      "Enabled": true,
+                                      "Children": [
+                                        {
+                                          "Id": "872b24c0-4b26-4bac-8341-b3c17cf7a623",
+                                          "Name": "hand_L",
+                                          "Position": "7.706676,-0.0000008344645,-0.00007987017",
+                                          "Rotation": "0.09163112,-0.03309625,0.03967814,0.9944518",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "Id": "74fd20a8-25b1-4e20-bd34-155273c45f01",
+                                              "Name": "hold_L",
+                                              "Position": "5.361056,0.6217204,3.394403",
+                                              "Rotation": "-0.6958921,-0.170415,-0.392899,0.5764749",
+                                              "Enabled": true
+                                            },
+                                            {
+                                              "Id": "b8c45d11-c834-48cf-a752-cfc93dc658dd",
+                                              "Name": "finger_thumb_0_L",
+                                              "Position": "1.127924,1.648618,0.8667801",
+                                              "Rotation": "0.5684277,0.1216941,0.4117243,0.7018287",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "Id": "93cee287-2ffd-4731-a5ab-ca9ca704c86d",
+                                                  "Name": "finger_thumb_1_L",
+                                                  "Position": "1.906562,-0.00002780556,-0.00005733965",
+                                                  "Rotation": "-0.0000006342307,-0.1627616,0.000004276633,0.9866654",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "Id": "0f5ea7ec-539f-4a70-95ea-ed202d4950e8",
+                                                      "Name": "finger_thumb_2_L",
+                                                      "Position": "2.136307,-0.00004172324,-0.0000980496",
+                                                      "Rotation": "0.0000002533197,-0.08419369,-0.00000004842877,0.9964494",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": "c2c75e92-a3d5-4315-aa92-4d1cc6ac07d5",
+                                              "Name": "finger_index_meta_L",
+                                              "Position": "2.075291,1.204094,0.3774741",
+                                              "Rotation": "0.06037846,0.04580591,0.1049121,0.9915894",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "Id": "3a851bcb-58d6-48e3-96b7-e7187063af72",
+                                                  "Name": "finger_index_0_L",
+                                                  "Position": "3.068911,-0.0000297427,-0.0001138448",
+                                                  "Rotation": "-0.00339286,-0.2652392,-0.06862513,0.9617316",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "Id": "bb8ef103-030f-4fb0-869c-180af88c4c25",
+                                                      "Name": "finger_index_1_L",
+                                                      "Position": "2.283286,-0.000005125997,-0.000147581",
+                                                      "Rotation": "-0.000001147389,-0.2335206,0.000003024936,0.972352",
+                                                      "Enabled": true,
+                                                      "Children": [
+                                                        {
+                                                          "Id": "837f067e-a73e-4c2b-8519-32418663b3d7",
+                                                          "Name": "finger_index_2_L",
+                                                          "Position": "1.594392,-0.0000593811,-0.0001720785",
+                                                          "Rotation": "-0.000004693866,-0.01375909,0.000002592802,0.9999053",
+                                                          "Enabled": true
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": "58e142c0-7e68-46c5-b195-deb382b55263",
+                                              "Name": "finger_middle_meta_L",
+                                              "Position": "2.100665,-0.1590793,0.2858093",
+                                              "Rotation": "0.00896778,0.03486501,-0.01934981,0.9991645",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "Id": "d5810165-def1-4353-ad54-59b1dfbb05bf",
+                                                  "Name": "finger_middle_0_L",
+                                                  "Position": "2.999226,-0.0000219047,-0.00009429451",
+                                                  "Rotation": "0.0008723736,-0.2335085,0.001296833,0.9723535",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "Id": "1ad24d5d-d245-46f9-8cd3-ea969fadb08b",
+                                                      "Name": "finger_middle_1_L",
+                                                      "Position": "2.560946,0.000001311302,-0.0001174211",
+                                                      "Rotation": "-0.000004440546,-0.2322974,0.00004120171,0.9726449",
+                                                      "Enabled": true,
+                                                      "Children": [
+                                                        {
+                                                          "Id": "dbf22814-457d-42c6-a8b9-ae75985b7937",
+                                                          "Name": "finger_middle_2_L",
+                                                          "Position": "1.68301,-0.00002819299,-0.000164031",
+                                                          "Rotation": "-0.00001375377,-0.04821886,-0.00003314018,0.9988368",
+                                                          "Enabled": true
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": "ab9b3957-4416-4702-9703-0d8a55e6d4fe",
+                                              "Name": "finger_ring_meta_L",
+                                              "Position": "2.104887,-1.444506,0.2232285",
+                                              "Rotation": "-0.06376523,-0.02919634,-0.1306909,0.9889396",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "Id": "501e21a4-f273-466d-9a40-5542683adda4",
+                                                  "Name": "finger_ring_0_L",
+                                                  "Position": "2.824281,-0.00002756714,-0.0001463889",
+                                                  "Rotation": "0.004531637,-0.1855573,0.05619837,0.9810146",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "Id": "1b19678f-4220-47d1-9ab4-d7fa748fdccc",
+                                                      "Name": "finger_ring_1_L",
+                                                      "Position": "2.197991,-0.000003010033,-0.0001496076",
+                                                      "Rotation": "-0.00004592538,-0.2566091,-0.00006532669,0.9665152",
+                                                      "Enabled": true,
+                                                      "Children": [
+                                                        {
+                                                          "Id": "424e8937-5956-48a6-9fc7-70ad7ed977c8",
+                                                          "Name": "finger_ring_2_L",
+                                                          "Position": "1.535339,-0.00002688168,-0.0001718699",
+                                                          "Rotation": "-0.00001230836,-0.05038811,0.000008925796,0.9987297",
+                                                          "Enabled": true
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": "f3b57e83-46aa-416b-bf53-660b5f5d197e",
+                                              "Name": "hand_R_to_L_ikrule",
+                                              "Position": "-28.15185,11.30969,27.26416",
+                                              "Rotation": "-0.2772723,-0.6901741,-0.00000002980232,0.6684159",
+                                              "Enabled": true
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Id": "cede4dfc-c08b-4353-ac57-a4e48a17fbaf",
+                                          "Name": "arm_lower_L_twist0",
+                                          "Position": "0,0,0",
+                                          "Enabled": true
+                                        },
+                                        {
+                                          "Id": "a894e962-f528-4f49-be54-f6f993484c0a",
+                                          "Name": "arm_lower_L_twist1",
+                                          "Position": "3.853339,-0.000001251697,-0.00007236",
+                                          "Enabled": true
+                                        },
+                                        {
+                                          "Id": "c4d9b5e9-ba4f-4663-9694-8a2449f9e602",
+                                          "Name": "arm_elbow_helper_L",
+                                          "Position": "0,0,0",
+                                          "Rotation": "0.0000003278255,-0.00000005960464,-0.7577646,0.6525283",
+                                          "Enabled": true
+                                        },
+                                        {
+                                          "Id": "b4482cc3-66dc-46ea-9aa5-a90e5ab2396c",
+                                          "Name": "arm_lower_L_twist",
+                                          "Position": "0,0,0",
+                                          "Enabled": true
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Id": "91909433-f4f4-430b-ab77-d293a6b5e61a",
+                                      "Name": "arm_upper_L_twist0",
+                                      "Position": "0,0,0",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "1172b5f1-f70d-4df4-ab4f-5b859c350db7",
+                                      "Name": "arm_upper_L_twist1",
+                                      "Position": "5.022609,0.000015527,-0.0000271797",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "6e5da002-dc7e-4559-b51a-53dca2252c30",
+                                      "Name": "arm_upper_L_twist",
+                                      "Position": "0,0,0",
+                                      "Enabled": true
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Id": "1878ff37-4112-469a-b247-d229ee42341c",
+                              "Name": "clavicle_R",
+                              "Position": "4.036982,0.2748705,-1.108162",
+                              "Rotation": "-0.08130813,0.6814711,-0.08696642,0.7220963",
+                              "Enabled": true,
+                              "Children": [
+                                {
+                                  "Id": "148757e1-ae73-4ef7-ab00-d7e1ba23c6be",
+                                  "Name": "arm_upper_R",
+                                  "Position": "6.218294,0.000005156732,-0.00006759165",
+                                  "Rotation": "0.0277065,0.3880895,0.06826836,0.918672",
+                                  "Enabled": true,
+                                  "Children": [
+                                    {
+                                      "Id": "6fdd7723-36c2-4a75-85cc-dcbd81c9951b",
+                                      "Name": "arm_lower_R",
+                                      "Position": "10.04517,0.00000965595,-0.00005674361",
+                                      "Rotation": "-0.0000000372529,0.0000001937151,0.1484233,0.9889239",
+                                      "Enabled": true,
+                                      "Children": [
+                                        {
+                                          "Id": "16322354-5e84-4c2e-bfb6-8fc8af6834b2",
+                                          "Name": "hand_R",
+                                          "Position": "7.706653,0.00002896785,-0.00004005432",
+                                          "Rotation": "-0.09163144,0.03309621,0.03967842,0.9944515",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "Id": "b4017856-96cc-4f6f-a7e0-3182cf4ec9ab",
+                                              "Name": "hold_R",
+                                              "Position": "5.361083,0.6219016,-3.394506",
+                                              "Rotation": "-0.576474,0.3928988,0.1704146,0.695893",
+                                              "Enabled": true
+                                            },
+                                            {
+                                              "Id": "7d4cab7a-b725-4dd3-ba4c-7d9634b4fe4a",
+                                              "Name": "finger_thumb_0_R",
+                                              "Position": "1.127924,1.648677,-0.8668855",
+                                              "Rotation": "-0.5684255,-0.1216944,0.4117284,0.7018281",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "Id": "510d7e46-c1ae-4845-81d6-7613d6ee8706",
+                                                  "Name": "finger_thumb_1_R",
+                                                  "Position": "1.906573,0.00001248717,-0.00005304812",
+                                                  "Rotation": "0.00000147149,0.1627604,-0.000003732741,0.9866656",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "Id": "eba48335-7f30-4c0d-9f58-146de7fe18cd",
+                                                      "Name": "finger_thumb_2_R",
+                                                      "Position": "2.136316,0.00003880261,-0.00007760521",
+                                                      "Rotation": "0.0000000782311,0.08420044,0.0000005532056,0.9964489",
+                                                      "Enabled": true
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": "a00e9d86-1af8-4211-8647-bcc709a6a83e",
+                                              "Name": "finger_index_meta_R",
+                                              "Position": "2.075282,1.204136,-0.3776003",
+                                              "Rotation": "-0.0603777,-0.04580308,0.1049159,0.9915892",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "Id": "786ea5a1-a636-4a4a-b4a4-603183fd00f8",
+                                                  "Name": "finger_index_0_R",
+                                                  "Position": "3.068901,0.00003266334,-0.00002348423",
+                                                  "Rotation": "0.003392495,0.2652348,-0.06862299,0.9617328",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "Id": "196addea-a7da-4923-afb3-82d6427600dd",
+                                                      "Name": "finger_index_1_R",
+                                                      "Position": "2.283288,0.00002986193,-0.00004714727",
+                                                      "Rotation": "0.000002712011,0.2335185,-0.000001698732,0.9723523",
+                                                      "Enabled": true,
+                                                      "Children": [
+                                                        {
+                                                          "Id": "a1aadd5c-eeae-494a-bb33-db94ea864aed",
+                                                          "Name": "finger_index_2_R",
+                                                          "Position": "1.594425,0.00007919966,-0.0001038443",
+                                                          "Rotation": "0.000004738569,0.01376472,0.0000004470348,0.9999053",
+                                                          "Enabled": true
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": "da0f9f15-802a-46e9-948b-033d76ee2f61",
+                                              "Name": "finger_middle_meta_R",
+                                              "Position": "2.100654,-0.159044,-0.2859281",
+                                              "Rotation": "-0.008967884,-0.03486186,-0.01934614,0.9991646",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "Id": "1ba5f04e-27ee-427b-b90b-067bd63a8198",
+                                                  "Name": "finger_middle_0_R",
+                                                  "Position": "2.999228,0.00005188583,-0.0000231266",
+                                                  "Rotation": "-0.0008731559,0.2335047,0.001300201,0.9723544",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "Id": "dfd6f70d-e349-4e52-bb4a-5af982589057",
+                                                      "Name": "finger_middle_1_R",
+                                                      "Position": "2.560971,0.00003793835,-0.00004655122",
+                                                      "Rotation": "0.000005975366,0.2322946,0.00003750622,0.9726455",
+                                                      "Enabled": true,
+                                                      "Children": [
+                                                        {
+                                                          "Id": "6b65bbb0-da97-44a0-b59d-52377ec3c7bb",
+                                                          "Name": "finger_middle_2_R",
+                                                          "Position": "1.68301,0.000066936,-0.0001042252",
+                                                          "Rotation": "0.00001381338,0.04822427,-0.00003582239,0.9988364",
+                                                          "Enabled": true
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": "9d604f56-0046-4e68-af27-b15fdf9723b0",
+                                              "Name": "finger_ring_meta_R",
+                                              "Position": "2.104869,-1.444472,-0.2233304",
+                                              "Rotation": "0.06376481,0.02919935,-0.1306878,0.9889399",
+                                              "Enabled": true,
+                                              "Children": [
+                                                {
+                                                  "Id": "2f0a3f34-1926-46ca-ab71-ec5547f08bad",
+                                                  "Name": "finger_ring_0_R",
+                                                  "Position": "2.824278,0.00006249545,-0.00001382827",
+                                                  "Rotation": "-0.004531965,0.185554,0.0562013,0.9810151",
+                                                  "Enabled": true,
+                                                  "Children": [
+                                                    {
+                                                      "Id": "66b2e97d-03f6-44cc-b5e0-6a0b5c76958e",
+                                                      "Name": "finger_ring_1_R",
+                                                      "Position": "2.198021,0.00003910064,-0.00004911422",
+                                                      "Rotation": "0.00004531443,0.2566069,-0.00006809831,0.9665158",
+                                                      "Enabled": true,
+                                                      "Children": [
+                                                        {
+                                                          "Id": "6927ab41-fbf6-4132-a579-59f325f528fb",
+                                                          "Name": "finger_ring_2_R",
+                                                          "Position": "1.535354,0.00007754565,-0.000111118",
+                                                          "Rotation": "0.00001199543,0.05039279,0.000008508563,0.9987295",
+                                                          "Enabled": true
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": "5af8c863-c639-4db4-930c-e104b791bb8e",
+                                              "Name": "hand_L_to_R_ikrule",
+                                              "Position": "-28.15179,11.30986,-27.26431",
+                                              "Rotation": "0.2772729,0.6901738,0.000000372529,0.6684158",
+                                              "Enabled": true
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Id": "0da68f39-4e97-48bb-a567-054c9b307df1",
+                                          "Name": "arm_lower_R_twist1",
+                                          "Position": "3.853322,0.00002682209,-0.00005733966",
+                                          "Enabled": true
+                                        },
+                                        {
+                                          "Id": "2a385085-9019-4b45-9f63-069885da15ac",
+                                          "Name": "arm_lower_R_twist0",
+                                          "Position": "0,0,0",
+                                          "Enabled": true,
+                                          "Children": [
+                                            {
+                                              "Id": "73730b94-d65a-4127-9eae-b6e32bf06d6b",
+                                              "Name": "arm_elbow_helper_R",
+                                              "Position": "0,0,0",
+                                              "Rotation": "-0.0000007376075,0.0000002682209,0.7577677,-0.6525244",
+                                              "Enabled": true
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Id": "dd9282d4-ad41-4c95-8c5b-d800a44bd4f6",
+                                          "Name": "arm_lower_R_twist",
+                                          "Position": "0,0,0",
+                                          "Enabled": true
+                                        },
+                                        {
+                                          "Id": "de831e4a-c37c-486a-a811-51fa7a0aeab0",
+                                          "Name": "arm_elbow_helper_R",
+                                          "Position": "0,0,0",
+                                          "Enabled": true
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Id": "7201d857-0944-443f-800a-452224fa03fe",
+                                      "Name": "arm_upper_R_twist0",
+                                      "Position": "0,0,0",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "31a9c751-c254-4e9c-8c79-7fa0aedebfc0",
+                                      "Name": "arm_upper_R_twist1",
+                                      "Position": "5.022587,0.00001567602,-0.00004744529",
+                                      "Enabled": true
+                                    },
+                                    {
+                                      "Id": "ecdc0fb4-19b4-4f1d-944d-4148669e3aac",
+                                      "Name": "arm_upper_R_twist",
+                                      "Position": "0,0,0",
+                                      "Enabled": true
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Id": "665a6f43-8dd7-49d5-b4ce-c9c872d57fb1",
+                              "Name": "neck_clothing",
+                              "Position": "5.820016,-0.09348675,-0.002965245",
+                              "Rotation": "0.0000821203,-0.000251025,0.01994136,-0.9998012",
+                              "Enabled": true
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Id": "9dfc2d53-66f6-40f5-a85a-f32b54a1cfe8",
+                  "Name": "leg_upper_R",
+                  "Position": "-0.2881533,-0.4264439,-4.427378",
+                  "Rotation": "-0.000001549721,1,0.0000001788139,-0.000000923872",
+                  "Enabled": true,
+                  "Children": [
+                    {
+                      "Id": "ffaabb52-9cb2-4cf3-8990-38352545e013",
+                      "Name": "leg_lower_R",
+                      "Position": "14.47037,-0.00001596073,0.00000106488",
+                      "Rotation": "-0.000001326203,0.0000001043081,-0.01828091,0.9998329",
+                      "Enabled": true,
+                      "Children": [
+                        {
+                          "Id": "079936e3-47d5-4b01-85aa-9af7cb5b424c",
+                          "Name": "ankle_R",
+                          "Position": "12.51552,0.000006943942,0.000000707878",
+                          "Rotation": "0.0000006258488,-0.000001043081,0.3914976,0.9201791",
+                          "Enabled": true,
+                          "Children": [
+                            {
+                              "Id": "8ba19ea4-92b1-4376-b3f1-9058da5175ca",
+                              "Name": "ball_R",
+                              "Position": "4.429121,0.0000002384186,0.000004078142",
+                              "Rotation": "-0.0000005032102,0.000001490116,0.3907284,0.920506",
+                              "Enabled": true
+                            }
+                          ]
+                        },
+                        {
+                          "Id": "4306781f-d3fc-4006-8de5-eb548be965da",
+                          "Name": "leg_lower_R_twist1",
+                          "Position": "6.257761,0.000006318093,-0.000003699168",
+                          "Enabled": true
+                        },
+                        {
+                          "Id": "a5ee3884-f4c3-4fff-820c-6e42bd3f024f",
+                          "Name": "leg_lower_R_twist0",
+                          "Position": "0,0,0",
+                          "Enabled": true
+                        },
+                        {
+                          "Id": "ef1ef60c-f092-4051-b337-e1cdee4078db",
+                          "Name": "leg_knee_helper_R",
+                          "Position": "0,0,0",
+                          "Rotation": "0.0000009241048,-0.000001251698,0.7135268,0.7006278",
+                          "Enabled": true
+                        },
+                        {
+                          "Id": "998ff389-0329-47cb-85cb-fd22ecc44dd1",
+                          "Name": "leg_lower_R_twist",
+                          "Position": "0,0,0",
+                          "Enabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "Id": "039bf43f-4d05-4ebf-acac-79694c473a1a",
+                      "Name": "leg_upper_R_twist1",
+                      "Position": "7.235195,0.00002492144,-0.00001329576",
+                      "Enabled": true
+                    },
+                    {
+                      "Id": "a98e7195-5c4a-4eaf-ac8b-dea2dfb8f62e",
+                      "Name": "leg_upper_R_twist0",
+                      "Position": "0,0,0",
+                      "Rotation": "-0.00000005960464,0,0.000003039837,1",
+                      "Enabled": true
+                    },
+                    {
+                      "Id": "a3f61b71-7bf0-4207-b2a7-63690759f8a4",
+                      "Name": "leg_glute_helper_R",
+                      "Position": "0,0,0",
+                      "Rotation": "-0.000001056968,-0.0000006258488,-0.7071052,0.7071084",
+                      "Enabled": true
+                    },
+                    {
+                      "Id": "1cbf1726-7c79-4210-83f2-782a61377fe1",
+                      "Name": "leg_upper_R_twist",
+                      "Position": "0,0,0",
+                      "Enabled": true
+                    }
+                  ]
+                },
+                {
+                  "Id": "9ed6ef02-26c2-4778-8de5-41a11cbc51be",
+                  "Name": "leg_upper_L",
+                  "Position": "-0.2881297,-0.4264377,4.427379",
+                  "Rotation": "-0.000001549721,1,0.0000001788139,-0.000001162291",
+                  "Enabled": true,
+                  "Children": [
+                    {
+                      "Id": "c5d1fbf3-c3f8-4105-805c-188d5ca7b11e",
+                      "Name": "leg_lower_L",
+                      "Position": "14.47037,-0.00004838563,-0.00002541375",
+                      "Rotation": "-0.000003024936,-0.0000004023314,-0.01828231,0.9998329",
+                      "Enabled": true,
+                      "Children": [
+                        {
+                          "Id": "69352a43-24ca-43be-93e0-b517fb8c9978",
+                          "Name": "ankle_L",
+                          "Position": "12.51552,0.000004500151,-0.000008570384",
+                          "Rotation": "0.000003278255,-0.0000009536743,0.3914973,0.9201792",
+                          "Enabled": true,
+                          "Children": [
+                            {
+                              "Id": "05e38a69-2a1b-448f-9356-c35bd2035f8f",
+                              "Name": "ball_L",
+                              "Position": "4.429115,0.000001430511,-0.00001387228",
+                              "Rotation": "-0.0000004862416,0.000001206994,0.3907294,0.9205056",
+                              "Enabled": true
+                            }
+                          ]
+                        },
+                        {
+                          "Id": "d45b0564-56fa-4c3d-9a4e-76f81d121412",
+                          "Name": "leg_lower_L_twist1",
+                          "Position": "6.257759,0.000003129244,-0.00001000724",
+                          "Enabled": true
+                        },
+                        {
+                          "Id": "3756e845-a299-47b4-af28-843940c437ca",
+                          "Name": "leg_lower_L_twist0",
+                          "Position": "0,0,0",
+                          "Enabled": true
+                        },
+                        {
+                          "Id": "89f996a0-3f77-46af-a211-e95be35bf810",
+                          "Name": "leg_knee_helper_L",
+                          "Position": "0,0,0",
+                          "Rotation": "-0.000003013527,-0.00000166893,0.7135276,0.700627",
+                          "Enabled": true
+                        },
+                        {
+                          "Id": "052d5b0f-4f07-40dc-83fa-fd52de11b551",
+                          "Name": "leg_lower_L_twist",
+                          "Position": "0,0,0",
+                          "Enabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "Id": "a6f0a4f6-e1b0-4873-b7f5-28a96b36a6c0",
+                      "Name": "leg_upper_L_twist1",
+                      "Position": "7.235189,0.00002110672,-0.000007938437",
+                      "Enabled": true
+                    },
+                    {
+                      "Id": "9c522bf5-dec2-4023-8961-673dd986c6a8",
+                      "Name": "leg_upper_L_twist0",
+                      "Position": "0,0,0",
+                      "Enabled": true
+                    },
+                    {
+                      "Id": "09af721c-ce9e-454b-b6de-aaad04713459",
+                      "Name": "leg_glute_helper_L",
+                      "Position": "0,0,0",
+                      "Rotation": "-0.000001011624,-0.0000006854534,-0.7071055,0.707108",
+                      "Enabled": true
+                    },
+                    {
+                      "Id": "bd120ada-6357-4dc2-bb7a-da6220578f69",
+                      "Name": "leg_upper_L_twist",
+                      "Position": "0,0,0",
+                      "Enabled": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Id": "39d4859b-28c7-4524-b701-5df9c8749d18",
+              "Name": "root_IK",
+              "Position": "1.266575,0.0000071965,0",
+              "Enabled": true,
+              "Children": [
+                {
+                  "Id": "53729d22-5873-42e9-957d-b341161c4d22",
+                  "Name": "hand_R_IK_target",
+                  "Position": "0.6939846,-20.39473,39.24799",
+                  "Rotation": "0.2871271,0.2142481,-0.5281312,0.7698917",
+                  "Enabled": true
+                },
+                {
+                  "Id": "98d80539-6cd5-4403-ba1e-c631f683060c",
+                  "Name": "hand_L_IK_target",
+                  "Position": "0.6941153,20.3947,39.24792",
+                  "Rotation": "0.7698929,0.5281296,-0.2142482,0.2871266",
+                  "Enabled": true
+                },
+                {
+                  "Id": "648a77ed-d10d-4df7-a485-2e08edbc9a52",
+                  "Name": "aim_matrix_02a",
+                  "Position": "4.638925,-0.0000008343597,9.8425",
+                  "Enabled": true,
+                  "Children": [
+                    {
+                      "Id": "9924c2a9-f27a-48a8-afa0-83791eedae41",
+                      "Name": "aim_matrix_02b",
+                      "Position": "3.937001,-0.0000004822493,-0.00000143021",
+                      "Enabled": true
+                    }
+                  ]
+                },
+                {
+                  "Id": "c4ec49c4-5c78-45b9-b765-c5d07aa74ffa",
+                  "Name": "aim_matrix_01",
+                  "Position": "4.638925,-0.0000008343597,11.811",
+                  "Enabled": true
+                },
+                {
+                  "Id": "2e5854d3-9eda-4c38-a613-ecc922d1737a",
+                  "Name": "foot_R_IK_target",
+                  "Position": "-0.8840668,-4.427395,3.807913",
+                  "Rotation": "0.6508947,0.2762884,-0.2762876,0.6508964",
+                  "Enabled": true
+                },
+                {
+                  "Id": "2724565f-e637-4ade-ad84-4d8723500d7f",
+                  "Name": "foot_L_IK_target",
+                  "Position": "-0.884093,4.427404,3.807924",
+                  "Rotation": "0.650896,0.276287,-0.2762895,0.6508948",
+                  "Enabled": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "9997d79b-b9f3-4f86-82a4-b83621ffb751",
+          "Name": "EyePos",
+          "Position": "0,0,64",
+          "Enabled": true
+        },
+        {
+          "Id": "7f38895e-ccb2-4d21-a4ea-629b51471f3b",
+          "Name": "Player Collider",
+          "Position": "1.762724,0,26.11092",
+          "Tags": "player",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "CapsuleCollider",
+              "__enabled": true,
+              "End": "0,0,36.18765",
+              "IsTrigger": false,
+              "Radius": 9.928085,
+              "Start": "0,0,-15.84208",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "12e97aef-146a-4e89-98a9-3fa5cf76c887",
+          "Name": "Feet",
+          "Position": "0,0,8",
+          "Enabled": true
+        },
+        {
+          "Id": "da883548-0359-4b39-b572-7a3583ae5f04",
+          "Name": "Decal",
+          "Components": [
+            {
+              "__type": "DecalRenderer",
+              "__enabled": true,
+              "CutoffAngle": 60,
+              "CutoffAngleSoftness": 5,
+              "Material": "materials/decals/default.vmat",
+              "Mod2XBlending": false,
+              "Size": "32,32,256",
+              "TintColor": "1,1,1,1",
+              "TriPlanar": false
+            }
+          ]
+        },
+        {
+          "Id": "29e70a5c-1ada-4ee5-91ce-2eff54c4c44c",
+          "Name": "Sphere",
+          "Position": "0,0,2",
+          "Scale": "0.4,0.4,0.01",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "ShadowsOnly",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "78a5be38-1b45-4966-b486-02e0a64e0acb",
+      "Name": "Network Helper",
+      "Position": "50.95977,298.5817,206.5707",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "NetworkHelper",
+          "__enabled": true,
+          "PlayerPrefab": "bf5dda2f-c652-4c21-9267-2c985a395554",
+          "SpawnPoints": [
+            "cbf70022-ff35-4946-a2a0-5cd3cf14a210"
+          ],
+          "StartServer": true
+        }
+      ]
+    },
+    {
+      "Id": "cbf70022-ff35-4946-a2a0-5cd3cf14a210",
+      "Name": "Spawn",
+      "Enabled": true
+    },
+    {
+      "Id": "80047f6d-49ff-4c1c-ac0a-1c409d68a696",
+      "Name": "Map",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "4aae6a59-c324-42d2-ab48-61ea6b5d1b0e",
+          "Name": "Platform",
+          "Position": "589.4845,0,-4.492184",
+          "Scale": "13.93058,4,0.15",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blackwhite.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "d8198e6d-3460-4680-8281-0ff57251da1f",
+          "Name": "Platform",
+          "Position": "1712,-1171.645,144",
+          "Scale": "4.963962,23.68431,0.15",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blackwhite.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "cf4e9239-e261-4470-8512-2784cb1eb1e5",
+          "Name": "lava",
+          "Position": "352,0,6.338945",
+          "Scale": "0.3999999,3.99,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "9eee27ea-a847-49b7-bb59-dd4214390725",
+          "Name": "lava",
+          "Position": "448,0,6.338945",
+          "Scale": "0.3999999,3.99,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "d3a53c8d-4dc5-47a4-aeca-fd9831cb3a8e",
+          "Name": "lava",
+          "Position": "544,0,6.338945",
+          "Scale": "0.3999999,3.99,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "521da86b-3acd-49b6-bb39-f6e42c32df76",
+          "Name": "lava",
+          "Position": "640,0,6.338945",
+          "Scale": "0.3999999,3.99,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "8a109e2f-d2a0-4f2c-ba56-383a09a7036d",
+          "Name": "lava",
+          "Position": "736,0,6.338945",
+          "Scale": "0.3999999,3.99,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "a4ab6b2e-44d0-4b26-b0fa-80b8d3727647",
+          "Name": "lava",
+          "Position": "576,-2048,368",
+          "Scale": "0.3999999,1.613983,1.96141",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "ddcbe813-1e6f-45f9-bf5f-651d596daf55",
+          "Name": "lava",
+          "Position": "448,-2048,368",
+          "Scale": "0.3999999,1.613983,1.96141",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "317ae458-b5f4-4cb7-b6d3-f317333b3c32",
+          "Name": "lava",
+          "Position": "320,-2048,368",
+          "Scale": "0.3999999,1.613983,1.96141",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "53159218-2f2d-49b2-9c1b-fab39c7d5a83",
+          "Name": "lava",
+          "Position": "832,0,6.338945",
+          "Scale": "0.3999999,3.99,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "08c6b577-878b-4182-b1bb-70c9d357d9d9",
+          "Name": "lava",
+          "Position": "1312,-96,55.32327",
+          "Scale": "0.3999999,1.391172,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "319db481-26e3-4301-8786-0bf862197bc6",
+          "Name": "Lava Spinner",
+          "Position": "1712,-896,160",
+          "Scale": "0.3999999,6.910244,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Obstacle",
+              "__enabled": true,
+              "RotateDirection": "0,0,0.008726539,0.9999619",
+              "Rotates": true
+            }
+          ]
+        },
+        {
+          "Id": "e7adef4d-4f19-472e-873c-78f964b41c07",
+          "Name": "Lava Spinner",
+          "Position": "1712,-1312,160",
+          "Scale": "0.3999999,6.910244,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Obstacle",
+              "__enabled": true,
+              "RotateDirection": "0,-0,-0.01745241,0.9998477",
+              "Rotates": true
+            }
+          ]
+        },
+        {
+          "Id": "a60cbdf2-83de-4c7a-aadc-2ec722c59350",
+          "Name": "Lava Spinner",
+          "Position": "1328,-1952,336",
+          "Rotation": "0.000000001595982,-0.00000004363021,0.707107,0.7071065",
+          "Scale": "0.1999999,6.210245,0.2",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Obstacle",
+              "__enabled": true,
+              "RotateDirection": "0,0,0.008726539,0.9999619",
+              "Rotates": true
+            }
+          ]
+        },
+        {
+          "Id": "b148f327-2897-4644-9c98-ea8491574f5c",
+          "Name": "Lava Spinner",
+          "Position": "912,-2160,336",
+          "Rotation": "0.000000001595982,-0.00000004363021,0.707107,0.7071065",
+          "Scale": "0.1999999,6.210245,0.2",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Obstacle",
+              "__enabled": true,
+              "RotateDirection": "0,-0,-0.008726539,0.9999619",
+              "Rotates": true
+            }
+          ]
+        },
+        {
+          "Id": "fd8274d7-8dc0-4526-8435-27abeadaf90c",
+          "Name": "Lava Spinner",
+          "Position": "1712,-1632,352",
+          "Rotation": "0.707107,0,0,0.7071065",
+          "Scale": "0.3999999,6.910244,0.3999999",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/bright_100.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.16337,0.16337,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Obstacle",
+              "__enabled": true,
+              "RotateDirection": "0,0,0.01745241,0.9998477",
+              "Rotates": true
+            }
+          ]
+        },
+        {
+          "Id": "a8bddc70-2d06-4611-8569-e0cfba03c3f0",
+          "Name": "Cube",
+          "Position": "1024,0,0",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "e6e4cedd-7124-4704-b40f-0809725e6bd3",
+          "Name": "Cube",
+          "Position": "1120,-32,32",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "5f0cc001-6888-483b-8ba6-a18b021556de",
+          "Name": "Cube",
+          "Position": "1211.178,-96,55.97006",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "456e3146-41c9-4d71-ac1d-daede52da4cb",
+          "Name": "Cube",
+          "Position": "1344,-96,58.41699",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "96f59283-1213-40c0-9adc-4f14d08530b6",
+          "Name": "Cube",
+          "Position": "1833.993,-2034.889,192",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "7c8adc56-e501-4736-bb9b-15ec60f22ba5",
+          "Name": "Cube",
+          "Position": "1833.993,-2192,224",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "bf7f3180-6642-4206-92ba-9f31e6392c31",
+          "Name": "Cube",
+          "Position": "1648,-2192,256",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "c95dd75c-057a-47ab-b593-b0e5eecea095",
+          "Name": "Cube",
+          "Position": "1712,-2048,288",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "366b38a8-ad56-4b7a-9948-ce6ac01ac06b",
+          "Name": "Cube",
+          "Position": "1552,-2048,320",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "515029f4-1e73-4436-9ba9-82959ef795c6",
+          "Name": "Cube",
+          "Position": "1408,-2048,320",
+          "Scale": "1,1.5,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "01dfb0fb-0f01-4e26-bed5-f1e6e7955ea4",
+          "Name": "Cube",
+          "Position": "992,-2048,320",
+          "Scale": "1,1.5,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "23e6646a-3b95-41f2-b732-ef8050b37145",
+          "Name": "Cube",
+          "Position": "1248,-2048,320",
+          "Scale": "1,1.5,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "40753183-6c19-4a7f-85d2-adb46a2f3283",
+          "Name": "Cube",
+          "Position": "832,-2048,320",
+          "Scale": "1,1.5,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "725c02a0-4de7-482a-898a-1dec10031aba",
+          "Name": "Cube",
+          "Position": "736,-1568,448",
+          "Rotation": "-0.5000004,0.4999998,0.5000002,0.4999994",
+          "Scale": "16,1.5,0.25",
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ],
+          "Children": [
+            {
+              "Id": "2e23b639-f41e-4509-beb7-b4fdec95efc5",
+              "Name": "Cube",
+              "Position": "0,0,0",
+              "Rotation": "0.0000002086163,-0.7071071,-0.0000002471552,0.7071066",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "__enabled": true,
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "BoxCollider",
+                  "__enabled": true,
+                  "Center": "0,0,0",
+                  "IsTrigger": false,
+                  "Scale": "50,50,50",
+                  "Static": false,
+                  "Surface": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "fca28eff-28e1-49be-afde-3f209b4352db",
+          "Name": "Cube",
+          "Position": "228,-1908,320",
+          "Scale": "0.2,0.9,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blackwhite.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "e0482c37-fb2d-4720-bd08-8d332cd42924",
+          "Name": "Cube",
+          "Position": "228,-1768,340",
+          "Scale": "0.2,0.9,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blackwhite.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "ecfd7a6a-4750-4f77-849a-d2681aa9bea6",
+          "Name": "Cube",
+          "Position": "228,-1612,368",
+          "Scale": "0.2,0.9,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blackwhite.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "7cb490f5-fb96-48f6-9113-436898ceffb8",
+          "Name": "Cube",
+          "Position": "228,-1468,400",
+          "Scale": "0.2,0.9,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blackwhite.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "01c0304c-eb4a-49ea-89ca-13d910bfe008",
+          "Name": "Cube",
+          "Position": "228,-1312,416",
+          "Scale": "0.2,0.9,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blackwhite.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "484a5092-7d86-4c28-9163-465da629f8c4",
+          "Name": "Cube",
+          "Position": "220,-1628,384",
+          "Rotation": "-0.00000008429393,0.7071065,0.00000008429348,0.707107",
+          "Scale": "3,15,0.25",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "e8f58071-fe18-47b2-82c7-bdf1b7b661c2",
+          "Name": "Cube",
+          "Position": "1120,-2048,320",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "dfb67c80-a113-40f1-b146-b46bc78783d8",
+          "Name": "Cube",
+          "Position": "472,-1856,448",
+          "Scale": "8,5,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "149dee25-cf3f-4e0f-b799-ff82cc955560",
+          "Name": "Cube",
+          "Position": "484,-2048,320",
+          "Scale": "10.79092,1.885334,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "a1861463-017f-4062-a135-e0baa363769e",
+          "Name": "Cube",
+          "Position": "1712,-1920,160",
+          "Scale": "1,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "30365f50-0724-4f2e-aeb3-a96c8c1ff238",
+          "Name": "Cube",
+          "Position": "1440,-95.99999,80",
+          "Scale": "0.5,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "82e6e6e5-a4fd-4731-92a3-4fa96915d02c",
+          "Name": "Cube",
+          "Position": "1536,-95.99999,80",
+          "Scale": "0.5,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "024b3111-db45-4ae8-bc17-b7e538522f73",
+          "Name": "Cube",
+          "Position": "1632,-95.99999,80",
+          "Scale": "0.5,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "a79ba173-99ea-492c-bb43-6cf8a37439e6",
+          "Name": "Cube",
+          "Position": "1680,-95.99999,96",
+          "Scale": "0.3,1,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "9d38c666-5462-4a42-9cf9-7d534528c861",
+          "Name": "Cube",
+          "Position": "1712,-320,112",
+          "Scale": "0.3,10,0.2533992",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "9a9e8a82-d8a5-4b6c-a383-5dc9c865fd33",
+          "Name": "Void Kill Trigger",
+          "Position": "0,0,-64",
+          "Scale": "999,999,1",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "ModelRenderer",
+              "__enabled": false,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": null,
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "6ea692b3-7906-4304-a57a-cdb5fd351e58",
+          "Name": "Void Kill Trigger",
+          "Position": "224,-1580,256",
+          "Scale": "50,50,1",
+          "Tags": "kill,trigger",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "ModelRenderer",
+              "__enabled": false,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": null,
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "a108dba4-ff51-43b6-b126-dfec9f83b8c1",
+          "Name": "Checkpoint (5)",
+          "Position": "720,-2048,329.1997",
+          "Scale": "0.8,0.8,0.125",
+          "Tags": "trigger,checkpoint",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "base/materials/red.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "c370a85f-f8d7-4969-b3e4-0769c234b4d6",
+          "Name": "Checkpoint (5)",
+          "Position": "320,-1856,456",
+          "Scale": "0.8,0.8,0.125",
+          "Tags": "trigger,checkpoint",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "base/materials/red.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "c84fef30-b8d2-4b33-ad05-4c5963cb9c98",
+          "Name": "Checkpoint (2)",
+          "Position": "0.8408533,0,3",
+          "Scale": "1.28,1.28,0.125",
+          "Tags": "trigger,checkpoint",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "base/materials/red.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "d4a84300-8acd-4705-b46b-f3c9285e69f1",
+          "Name": "Checkpoint (1)",
+          "Position": "896,0,2",
+          "Scale": "1.28,1.28,0.125",
+          "Tags": "trigger,checkpoint",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "base/materials/red.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "7da2dd08-beed-4672-8219-270b4554f1cf",
+          "Name": "Checkpoint (3)",
+          "Position": "1712,-656,150",
+          "Scale": "1.28,1.28,0.125",
+          "Tags": "trigger,checkpoint",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "base/materials/red.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "04c286f4-54ac-404e-800f-1cd2d304b826",
+          "Name": "Checkpoint (4)",
+          "Position": "1712,-1728,150",
+          "Scale": "1.28,1.28,0.125",
+          "Tags": "trigger,checkpoint",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "base/materials/red.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "e8824117-01ae-45d4-a92b-d3debb53b5b4",
+      "Name": "Music",
+      "Position": "0,0,64",
+      "Components": [
+        {
+          "__type": "SoundscapeTrigger",
+          "__enabled": true,
+          "BoxSize": "50,50,50",
+          "Radius": 500,
+          "Soundscape": "sounds/birdsoundscape.sndscape",
+          "StayActiveOnExit": true,
+          "Type": "Point"
+        }
+      ]
+    },
+    {
+      "Id": "a75afa6c-fd77-4d04-ae12-7bc70bbb27ab",
+      "Name": "Win Text",
+      "Position": "512,-1856,528",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "TextRenderer",
+          "__enabled": true,
+          "Color": "0.43638,0.87624,0.31232,1",
+          "FontFamily": "arial",
+          "FontSize": 97.85,
+          "Scale": 0.16,
+          "Text": "You Win! For Now..."
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 60,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true
+  },
+  "Title": "minimal",
+  "Description": "",
+  "__references": [
+    "degg.base_mat_red",
+    "fishum.dev_blackwhite",
+    "fishum.dev_blue"
+  ]
+}
