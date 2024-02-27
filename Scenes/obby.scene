@@ -70,82 +70,6 @@
       ]
     },
     {
-      "Id": "d609e8c8-b41d-42da-8e0a-6504a9ccb2e2",
-      "Name": "Camera",
-      "Position": "-200,0,64",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "CameraComponent",
-          "BackgroundColor": "0.25292,0.26086,0.29703,1",
-          "ClearFlags": "All",
-          "FieldOfView": 69.32,
-          "IsMainCamera": true,
-          "Orthographic": false,
-          "OrthographicHeight": 1204,
-          "Priority": 1,
-          "RenderExcludeTags": "",
-          "RenderTags": "",
-          "TargetEye": "None",
-          "Viewport": "0,0,1,1",
-          "ZFar": 10000,
-          "ZNear": 1
-        },
-        {
-          "__type": "Sharpen",
-          "Scale": 0.2
-        },
-        {
-          "__type": "Bloom",
-          "BloomColor": {
-            "color": [
-              {
-                "c": "1,1,1,1"
-              },
-              {
-                "t": 1,
-                "c": "1,1,1,1"
-              }
-            ],
-            "alpha": []
-          },
-          "BloomCurve": {
-            "rangey": "0,106.45",
-            "frames": [
-              {},
-              {
-                "x": 1,
-                "y": 1
-              }
-            ]
-          },
-          "Mode": "Screen",
-          "Strength": 0.48,
-          "Threshold": 0.8,
-          "ThresholdWidth": 0.68
-        },
-        {
-          "__type": "Tonemapping",
-          "ExposureCompensation": 0,
-          "MaximumExposure": 2,
-          "MinimumExposure": 0.95,
-          "Rate": 0.69
-        },
-        {
-          "__type": "GradientFog",
-          "Color": "0.15038,0.2743,0.51485,0.26",
-          "EndDistance": 8096,
-          "FalloffExponent": 1,
-          "Height": 2000,
-          "StartDistance": 0,
-          "VerticalFalloffExponent": 1
-        },
-        {
-          "__type": "AudioListener"
-        }
-      ]
-    },
-    {
       "Id": "bf5dda2f-c652-4c21-9267-2c985a395554",
       "Name": "Player",
       "Components": [
@@ -169,31 +93,7 @@
           "CheckpointVolume": 1.5,
           "DeathSound": "sounds/kenney/ui/ui.navigate.deny.sound",
           "DeathVolume": 2,
-          "playerCollider": {
-            "_type": "component",
-            "go": "7f38895e-ccb2-4d21-a4ea-629b51471f3b",
-            "component_type": "CapsuleCollider"
-          }
-        },
-        {
-          "__type": "PlayerController",
-          "AnimationHelper": {
-            "_type": "component",
-            "go": "b93a94f5-bf8e-4aba-87ae-a6d962ce6af2",
-            "component_type": "CitizenAnimationHelper"
-          },
-          "Body": {
-            "_type": "gameobject",
-            "go": "b93a94f5-bf8e-4aba-87ae-a6d962ce6af2"
-          },
-          "Eye": {
-            "_type": "gameobject",
-            "go": "9997d79b-b9f3-4f86-82a4-b83621ffb751"
-          },
-          "FirstPerson": false,
-          "Gravity": "0,0,800",
-          "JumpSound": "sounds/kenney/ui/ui.downvote.sound",
-          "JumpVolume": 1
+          "PlayerCollider": null
         },
         {
           "__type": "Footsteps",
@@ -1112,7 +1012,7 @@
           "__type": "NetworkHelper",
           "PlayerPrefab": {
             "_type": "gameobject",
-            "go": "bf5dda2f-c652-4c21-9267-2c985a395554"
+            "prefab": "prefabs/player.prefab"
           },
           "SpawnPoints": [
             {
@@ -1127,6 +1027,7 @@
     {
       "Id": "cbf70022-ff35-4946-a2a0-5cd3cf14a210",
       "Name": "Spawn",
+      "Position": "448,-1856,454.335",
       "Enabled": true
     },
     {
@@ -1325,7 +1226,7 @@
           "Id": "a4ab6b2e-44d0-4b26-b0fa-80b8d3727647",
           "Name": "lava",
           "Position": "576,-2048,368",
-          "Scale": "0.3999999,1.613983,1.96141",
+          "Scale": "0.3999999,1.884,1.96141",
           "Tags": "kill,trigger",
           "Enabled": true,
           "Components": [
@@ -1352,7 +1253,7 @@
           "Id": "ddcbe813-1e6f-45f9-bf5f-651d596daf55",
           "Name": "lava",
           "Position": "448,-2048,368",
-          "Scale": "0.3999999,1.613983,1.96141",
+          "Scale": "0.3999999,1.884,1.96141",
           "Tags": "kill,trigger",
           "Enabled": true,
           "Components": [
@@ -1379,7 +1280,7 @@
           "Id": "317ae458-b5f4-4cb7-b6d3-f317333b3c32",
           "Name": "lava",
           "Position": "320,-2048,368",
-          "Scale": "0.3999999,1.613983,1.96141",
+          "Scale": "0.3999999,1.884,1.96141",
           "Tags": "kill,trigger",
           "Enabled": true,
           "Components": [
@@ -1483,7 +1384,7 @@
             },
             {
               "__type": "Obstacle",
-              "RotateDirection": "0,0,0.008726539,0.9999619",
+              "RotateDirection": "0,-0,-0.02181488,0.999762",
               "Rotates": true
             }
           ]
@@ -1515,7 +1416,7 @@
             },
             {
               "__type": "Obstacle",
-              "RotateDirection": "0,-0,-0.01745241,0.9998477",
+              "RotateDirection": "0,-0,-0.02181488,0.999762",
               "Rotates": true
             }
           ]
@@ -1614,7 +1515,39 @@
             },
             {
               "__type": "Obstacle",
-              "RotateDirection": "0,0,0.01745241,0.9998477",
+              "RotateDirection": "0,-0,-0.02181488,0.999762",
+              "Rotates": true
+            }
+          ]
+        },
+        {
+          "Id": "119fe793-c77d-4a1c-bb91-f7b327d4e890",
+          "Name": "Lava Spinner",
+          "Position": "639.9988,-1696,608.0028",
+          "Rotation": "0.5000001,0.4999997,0.5000001,0.4999998",
+          "Scale": "0.3999999,10.72638,4",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/surfaces/dev_blue.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Obstacle",
+              "RotateDirection": "0,-0,-0.008726535,0.9999619",
               "Rotates": true
             }
           ]
@@ -1622,7 +1555,7 @@
         {
           "Id": "a8bddc70-2d06-4611-8569-e0cfba03c3f0",
           "Name": "Cube",
-          "Position": "1024,0,0",
+          "Position": "1056,32,-0.00001187646",
           "Scale": "1,1,0.2533992",
           "Enabled": true,
           "Components": [
@@ -1648,7 +1581,7 @@
         {
           "Id": "e6e4cedd-7124-4704-b40f-0809725e6bd3",
           "Name": "Cube",
-          "Position": "1120,-32,32",
+          "Position": "1120,-96,32",
           "Scale": "1,1,0.2533992",
           "Enabled": true,
           "Components": [
@@ -1674,7 +1607,7 @@
         {
           "Id": "5f0cc001-6888-483b-8ba6-a18b021556de",
           "Name": "Cube",
-          "Position": "1211.178,-96,55.97006",
+          "Position": "1211.178,-32,55.97006",
           "Scale": "1,1,0.2533992",
           "Enabled": true,
           "Components": [
@@ -2014,8 +1947,8 @@
         {
           "Id": "fca28eff-28e1-49be-afde-3f209b4352db",
           "Name": "Cube",
-          "Position": "228,-1908,320",
-          "Scale": "0.2,0.9,0.2533992",
+          "Position": "228,-1888,320",
+          "Scale": "0.2,0.2512491,0.2533992",
           "Enabled": true,
           "Components": [
             {
@@ -2041,7 +1974,7 @@
           "Id": "e0482c37-fb2d-4720-bd08-8d332cd42924",
           "Name": "Cube",
           "Position": "228,-1768,340",
-          "Scale": "0.2,0.9,0.2533992",
+          "Scale": "0.2,0.1710194,0.2533992",
           "Enabled": true,
           "Components": [
             {
@@ -2066,8 +1999,8 @@
         {
           "Id": "ecfd7a6a-4750-4f77-849a-d2681aa9bea6",
           "Name": "Cube",
-          "Position": "228,-1612,368",
-          "Scale": "0.2,0.9,0.2533992",
+          "Position": "228,-1632,352",
+          "Scale": "0.2,0.2498882,0.2533992",
           "Enabled": true,
           "Components": [
             {
@@ -2092,8 +2025,8 @@
         {
           "Id": "7cb490f5-fb96-48f6-9113-436898ceffb8",
           "Name": "Cube",
-          "Position": "228,-1468,400",
-          "Scale": "0.2,0.9,0.2533992",
+          "Position": "228,-1495.655,386.9737",
+          "Scale": "0.2,0.2178782,0.2533992",
           "Enabled": true,
           "Components": [
             {
@@ -2118,8 +2051,8 @@
         {
           "Id": "01c0304c-eb4a-49ea-89ca-13d910bfe008",
           "Name": "Cube",
-          "Position": "228,-1312,416",
-          "Scale": "0.2,0.9,0.2533992",
+          "Position": "228,-1350.986,413.4503",
+          "Scale": "0.2,0.2960744,0.2533992",
           "Enabled": true,
           "Components": [
             {
@@ -2276,7 +2209,7 @@
           "Id": "30365f50-0724-4f2e-aeb3-a96c8c1ff238",
           "Name": "Cube",
           "Position": "1440,-95.99999,80",
-          "Scale": "0.5,1,0.2533992",
+          "Scale": "0.2,1,0.2533992",
           "Enabled": true,
           "Components": [
             {
@@ -2302,7 +2235,7 @@
           "Id": "82e6e6e5-a4fd-4731-92a3-4fa96915d02c",
           "Name": "Cube",
           "Position": "1536,-95.99999,80",
-          "Scale": "0.5,1,0.2533992",
+          "Scale": "0.2,1,0.2533992",
           "Enabled": true,
           "Components": [
             {
@@ -2328,7 +2261,7 @@
           "Id": "024b3111-db45-4ae8-bc17-b7e538522f73",
           "Name": "Cube",
           "Position": "1632,-95.99999,80",
-          "Scale": "0.5,1,0.2533992",
+          "Scale": "0.2,1,0.2533992",
           "Enabled": true,
           "Components": [
             {
@@ -2677,7 +2610,7 @@
   },
   "Title": "minimal",
   "Description": "",
-  "LastSaved": "2024-02-21T11:23:52.0907646-08:00",
+  "LastSaved": "2024-02-26T20:46:08.3626667-08:00",
   "__references": [
     "degg.base_mat_red",
     "fishum.dev_blackwhite",
